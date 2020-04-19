@@ -56,13 +56,13 @@ int main()
 		if (bPos.x >= 790) {
 			dx *= -1;
 		}
-		else if (bPos.x <= 10) {
+		if(bPos.x <= (pPos.x)) {
 			ball.setPosition(400, 300);
 			dx *= -1;
 			score = 0;
 			text.setString(std::to_string(score));
 		}
-		else if (bPos.x <= pPos.x + 10 && bPos.x >= pPos.x && (bPos.y <= pPos.y + 40 && bPos.y >= pPos.y - 40)) {
+		else if (bPos.x <= pPos.x + 10 && (bPos.y <= pPos.y + 40 && bPos.y >= pPos.y - 40)) {
 			dx *= -1;
 			score++;
 			text.setString(std::to_string(score));

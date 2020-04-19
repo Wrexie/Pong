@@ -15,11 +15,21 @@ int main()
 	//Render the window
 	RenderWindow window(vm, "Pong - By: Wrexie", Style::Default);
 
+	//Paddle
+	//Paddle paddleA = Paddle(390);
+
+	//Ball
+	Ball ball = Ball(400, 300);
+
 	//Main game loop
 	while (window.isOpen()) {
 		if (Keyboard::isKeyPressed(Keyboard::Escape)) {
 			window.close();
 		}
+		window.clear(Color::Black);
+		window.draw(ball);
+
+		window.display();
 	}
 }
 

@@ -2,6 +2,8 @@
 #include "pch.h"
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Paddle.h"
+#include "Ball.h"
 
 using namespace sf;
 

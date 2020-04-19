@@ -1,5 +1,2 @@
 ﻿  Pong.cpp
-  LINK : C:\Users\Andrew\Documents\GitHub\Pong\Pong\Debug\Pong.exe not found or not built by the last incremental link; performing full link
-Pong.obj : error LNK2005: "private: static class sf::Vector2<float> const Paddle::up" (?up@Paddle@@0V?$Vector2@M@sf@@B) already defined in Paddle.obj
-Pong.obj : error LNK2005: "private: static class sf::Vector2<float> const Paddle::down" (?down@Paddle@@0V?$Vector2@M@sf@@B) already defined in Paddle.obj
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Debug\Pong.exe : fatal error LNK1169: one or more multiply defined symbols found
+  Pong.vcxproj -> C:\Users\Andrew\Documents\GitHub\Pong\Pong\Debug\Pong.exe

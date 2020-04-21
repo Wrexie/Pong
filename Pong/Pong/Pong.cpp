@@ -72,6 +72,7 @@ int main()
 	restart.setOutlineColor(Color::Red);
 	start.setOutlineThickness(3);
 	restart.setOutlineThickness(3);
+	bool started = false;
 	bool esc = false;
 	int c = 0;
 
@@ -80,29 +81,69 @@ int main()
 	while (window.isOpen()) {
 		if (isPlaying) {
 			while (window.pollEvent(event)) {
-				if (event.type == sf::Event::KeyPressed) {
+				if (event.type == Event::KeyPressed) {
 					if (event.key.code == Keyboard::Escape) {
-						if (esc == false) {
-							esc = true;
-							continue;
-						}
-						if (esc == true) {
-							esc = false;
-							continue;
-						}
-
+						esc = true;
+						isPlaying = false;
 					}
 				}
 			}
+			Vector2f bPos = ball.getPosition();
+			Vector2f pPos = paddleA.getPosition();
+			ball.setPosition(bPos.x += dx, bPos.y += dy);
+
+			if (bPos.y >= 590) {
+				dy *= -1;
+			}
+			else if (bPos.y <= 10) {
+				dy *= -1;
+			}
+			if (bPos.x >= 790) {
+				dx *= -1;
+			}
+			if (bPos.x <= (pPos.x)) {
+				ball.setPosition(400, 300);
+				dx *= -1;
+				score = 0;
+				text.setString(std::to_string(score));
+			}
+			else if (bPos.x <= pPos.x + 10 && (bPos.y <= pPos.y + 40 && bPos.y >= pPos.y - 40)) {
+				dx *= -1;
+				score++;
+				text.setString(std::to_string(score));
+			}
+			if ((pPos.y - 40) < 0) {
+				paddleA.setPosition(pPos.x, 40);
+			}
+			else if ((pPos.y + 40) > 600) {
+				paddleA.setPosition(pPos.x, 560);
+			}
+			window.clear(Color::Black);
+			window.draw(text);
+			window.draw(ball);
+			window.draw(paddleA);
+			paddleA.handleKey();
+			window.display();	
+		}
+
+		else if (!isPlaying) {
 			if (esc == true) {
 				while (window.pollEvent(event)) {
 					if (event.type == Event::KeyPressed) {
+						if (Keyboard::isKeyPressed(Keyboard::Escape)) {
+							esc = false;
+							isPlaying = true;
+						}
 						if (Keyboard::isKeyPressed(Keyboard::Enter) || Keyboard::isKeyPressed(Keyboard::Space)) {
 							if (c == 0) {
 								score = 0;
 								text.setString(std::to_string(score));
 								ball.setPosition(400, 300);
-								paddleA.setPosition(10, 300);
+								dx = 7;
+								dy = 7;
+								paddleA.setPosition(20, 300);
+								esc = false;
+								isPlaying = true;
 							}
 							if (c == 1) {
 								window.close();
@@ -121,9 +162,9 @@ int main()
 							restart.setOutlineThickness(3);
 							continue;
 						}
-						else if (event.key.code == Keyboard::S) {
+						if (event.key.code == Keyboard::S) {
 							if (c == 1) {
-								c == 0;
+								c = 0;
 								quit.setOutlineThickness(0);
 								restart.setOutlineThickness(3);
 								continue;
@@ -134,102 +175,57 @@ int main()
 							continue;
 						}
 					}
+					window.clear(Color::Black);
+					window.draw(restart);
+					window.draw(quit);
+					window.display();
 				}
-
-				window.clear(Color::Black);
-				window.draw(restart);
-				window.draw(quit);
-				window.display();
 			}
-
-			if (esc == false) {
-				Vector2f bPos = ball.getPosition();
-				Vector2f pPos = paddleA.getPosition();
-				ball.setPosition(bPos.x += dx, bPos.y += dy);
-
-
-				if (bPos.y >= 590) {
-					dy *= -1;
-				}
-				else if (bPos.y <= 10) {
-					dy *= -1;
-				}
-				if (bPos.x >= 790) {
-					dx *= -1;
-				}
-				if (bPos.x <= (pPos.x)) {
-					ball.setPosition(400, 300);
-					dx *= -1;
-					score = 0;
-					text.setString(std::to_string(score));
-				}
-				else if (bPos.x <= pPos.x + 10 && (bPos.y <= pPos.y + 40 && bPos.y >= pPos.y - 40)) {
-					dx *= -1;
-					score++;
-					text.setString(std::to_string(score));
-				}
-
-				if ((pPos.y - 40) < 0) {
-					paddleA.setPosition(pPos.x, 40);
-				}
-				else if ((pPos.y + 40) > 600) {
-					paddleA.setPosition(pPos.x, 560);
-				}
-
-				window.clear(Color::Black);
-				window.draw(text);
-				window.draw(ball);
-				window.draw(paddleA);
-				paddleA.handleKey();
-				window.display();
-			}
-		}
-
-		else if (!isPlaying) {
-			while (window.pollEvent(event)) {
-				if (event.type == Event::KeyPressed) {
-					if (Keyboard::isKeyPressed(Keyboard::Enter) || Keyboard::isKeyPressed(Keyboard::Space)) {
-						if (c == 0) {
-							isPlaying = true;
-
+			if (started == false) {
+				while (window.pollEvent(event)) {
+					if (event.type == Event::KeyPressed) {
+						if (Keyboard::isKeyPressed(Keyboard::Enter) || Keyboard::isKeyPressed(Keyboard::Space)) {
+							if (c == 0) {
+								started = true;
+								isPlaying = true;
+							}
+							if (c == 1) {
+								window.close();
+							}
 						}
-						if (c == 1) {
-							window.close();
-						}
-					}
 
-					if (event.key.code == Keyboard::W) {
-						if (c == 0) {
-							c = 1;
-							start.setOutlineThickness(0);
-							quit.setOutlineThickness(3);
-							continue;
-						}
-						c -= 1;
-						quit.setOutlineThickness(0);
-						start.setOutlineThickness(3);
-						continue;
-					}
-					else if (event.key.code == Keyboard::S) {
-						if (c == 1) {
-							c == 0;
+						if (event.key.code == Keyboard::W) {
+							if (c == 0) {
+								c = 1;
+								start.setOutlineThickness(0);
+								quit.setOutlineThickness(3);
+								continue;
+							}
+							c -= 1;
 							quit.setOutlineThickness(0);
 							start.setOutlineThickness(3);
 							continue;
 						}
-						c += 1;
-						start.setOutlineThickness(0);
-						quit.setOutlineThickness(3);
-						continue;
+						if (event.key.code == Keyboard::S) {
+							if (c == 1) {
+								c = 0;
+								quit.setOutlineThickness(0);
+								start.setOutlineThickness(3);
+								continue;
+							}
+							c += 1;
+							start.setOutlineThickness(0);
+							quit.setOutlineThickness(3);
+							continue;
+						}
 					}
+					window.clear(Color::Black);
+					window.draw(title);
+					window.draw(start);
+					window.draw(quit);
+					window.display();
 				}
 			}
-
-			window.clear(Color::Black);
-			window.draw(title);
-			window.draw(start);
-			window.draw(quit);
-			window.display();
 		}
 	}
 }

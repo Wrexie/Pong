@@ -1,1 +1,3 @@
 Simple single player Pong created in C++. Created by Wrexie on 4/18/2020 to practice C++ and learn a bit about SFML.
+
+Move paddle up/down with 'W' and 'S'. Hit 'ESC' to exit program

@@ -1,24 +1,29 @@
 ﻿  Pong.cpp
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(62,39): warning C4244:  'argument': conversion from 'T' to 'float', possible loss of data
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(62,39): warning C4244:         with
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(62,39): warning C4244:         [
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(62,39): warning C4244:             T=unsigned int
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(62,39): warning C4244:         ]
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(63,39): warning C4244:  'argument': conversion from 'T' to 'float', possible loss of data
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(63,39): warning C4244:         with
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(63,39): warning C4244:         [
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(63,39): warning C4244:             T=unsigned int
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(63,39): warning C4244:         ]
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(64,38): warning C4244:  'argument': conversion from 'T' to 'float', possible loss of data
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(64,38): warning C4244:         with
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(64,38): warning C4244:         [
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(64,38): warning C4244:             T=unsigned int
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(64,38): warning C4244:         ]
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(65,41): warning C4244:  'argument': conversion from 'T' to 'float', possible loss of data
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(65,41): warning C4244:         with
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(65,41): warning C4244:         [
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(65,41): warning C4244:             T=unsigned int
-C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(65,41): warning C4244:         ]
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(67,39): warning C4244:  'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(67,39): warning C4244:         with
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(67,39): warning C4244:         [
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(67,39): warning C4244:             T=unsigned int
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(67,39): warning C4244:         ]
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(68,39): warning C4244:  'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(68,39): warning C4244:         with
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(68,39): warning C4244:         [
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(68,39): warning C4244:             T=unsigned int
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(68,39): warning C4244:         ]
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(69,38): warning C4244:  'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(69,38): warning C4244:         with
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(69,38): warning C4244:         [
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(69,38): warning C4244:             T=unsigned int
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(69,38): warning C4244:         ]
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(70,41): warning C4244:  'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(70,41): warning C4244:         with
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(70,41): warning C4244:         [
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(70,41): warning C4244:             T=unsigned int
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(70,41): warning C4244:         ]
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(71,42): warning C4244:  'argument': conversion from 'T' to 'float', possible loss of data
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(71,42): warning C4244:         with
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(71,42): warning C4244:         [
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(71,42): warning C4244:             T=unsigned int
+C:\Users\Andrew\Documents\GitHub\Pong\Pong\Pong\Pong.cpp(71,42): warning C4244:         ]
   Generating code
   0 of 117 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation

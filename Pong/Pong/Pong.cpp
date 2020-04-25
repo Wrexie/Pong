@@ -37,36 +37,43 @@ int main()
 	text.setStyle(Text::Bold);
 	text.setPosition(750, 10);
 
-	//Start menu
+	//Menu(s) text
 	Event event;
 	Text title("", font);
 	Text start("", font);
 	Text quit("", font);
 	Text restart("", font);
+	Text gameOver("", font);
 	title.setString("Pong");
 	start.setString("Start Game");
 	quit.setString("Quit");
 	restart.setString("Restart");
+	gameOver.setString("Game Over!");
 	title.setFillColor(Color::White);
 	start.setFillColor(Color::White);
 	quit.setFillColor(Color::White);
 	restart.setFillColor(Color::White);
+	gameOver.setFillColor(Color::White);
 	title.setCharacterSize(50);
 	start.setCharacterSize(45);
 	quit.setCharacterSize(45);
 	restart.setCharacterSize(45);
+	gameOver.setCharacterSize(45);
 	title.setStyle(Text::Bold | Text::Underlined);
 	start.setStyle(Text::Bold);
 	quit.setStyle(Text::Bold);
 	restart.setStyle(Text::Bold);
+	gameOver.setStyle(Text::Bold);
 	title.setPosition(window.getSize().x / 2, 100);
 	start.setPosition(window.getSize().x / 2, 200);
 	quit.setPosition(window.getSize().x / 2, 300);
 	restart.setPosition(window.getSize().x / 2, 200);
+	gameOver.setPosition(window.getSize().x / 2, 100);
 	title.setOrigin(title.getLocalBounds().width / 2.0f, title.getLocalBounds().height / 2.0f);
 	start.setOrigin(start.getLocalBounds().width / 2.0f, start.getLocalBounds().height / 2.0f);
 	quit.setOrigin(quit.getLocalBounds().width / 2.0f, quit.getLocalBounds().height / 2.0f);
 	restart.setOrigin(restart.getLocalBounds().width / 2.0f, restart.getLocalBounds().height / 2.0f);
+	gameOver.setOrigin(gameOver.getLocalBounds().width / 2.0f, gameOver.getLocalBounds().height / 2.0f);
 	quit.setOutlineColor(Color::Red);
 	start.setOutlineColor(Color::Red);
 	restart.setOutlineColor(Color::Red);
@@ -74,6 +81,7 @@ int main()
 	restart.setOutlineThickness(3);
 	bool started = false;
 	bool esc = false;
+	bool over = false;
 	int c = 0;
 
 	//Main game loop
@@ -106,6 +114,8 @@ int main()
 				dx *= -1;
 				score = 0;
 				text.setString(std::to_string(score));
+				over = true;
+				isPlaying = false;
 			}
 			else if (bPos.x <= pPos.x + 10 && (bPos.y <= pPos.y + 40 && bPos.y >= pPos.y - 40)) {
 				dx *= -1;
@@ -225,6 +235,52 @@ int main()
 					window.draw(quit);
 					window.display();
 				}
+			}
+			if (over == true) {
+				while (window.pollEvent(event)) {
+					if (event.type == Event::KeyPressed) {
+						if (Keyboard::isKeyPressed(Keyboard::Enter) || Keyboard::isKeyPressed(Keyboard::Space)) {
+							if (c == 0) {
+								ball.setPosition(400, 300);
+								paddleA.setPosition(20, 300);
+								over = false;
+								isPlaying = true;
+							}
+							if (c == 1) {
+								window.close();
+							}
+						}
+						if (event.key.code == Keyboard::W) {
+							if (c == 0) {
+								c = 1;
+								restart.setOutlineThickness(0);
+								quit.setOutlineThickness(3);
+								continue;
+							}
+							c -= 1;
+							quit.setOutlineThickness(0);
+							restart.setOutlineThickness(3);
+							continue;
+						}
+						if (event.key.code == Keyboard::S) {
+							if (c == 1) {
+								c = 0;
+								quit.setOutlineThickness(0);
+								restart.setOutlineThickness(3);
+								continue;
+							}
+							c += 1;
+							restart.setOutlineThickness(0);
+							quit.setOutlineThickness(3);
+							continue;
+						}
+					}
+				}
+				window.clear(Color::Black);
+				window.draw(restart);
+				window.draw(quit);
+				window.draw(gameOver);
+				window.display();
 			}
 		}
 	}

@@ -22,9 +22,9 @@ int main()
 
 	//Ball
 	Ball ball = Ball(400, 300);
-	float dx, dy;
-	dx = 7;
-	dy = 7;
+	float ballSpeedX, ballSpeedY;
+	ballSpeedX = 7;
+	ballSpeedY = 7;
 
 	//Score
 	int score = 0;
@@ -96,37 +96,37 @@ int main()
 					}
 				}
 			}
-			Vector2f bPos = ball.getPosition();
-			Vector2f pPos = paddleA.getPosition();
-			ball.setPosition(bPos.x += dx, bPos.y += dy);
+			Vector2f ballPosition = ball.getPosition();
+			Vector2f paddlePosition = paddleA.getPosition();
+			ball.setPosition(ballPosition.x += ballSpeedX, ballPosition.y += ballSpeedY);
 
-			if (bPos.y >= 590) {
-				dy *= -1;
+			if (ballPosition.y >= 590) {
+				ballSpeedY *= -1;
 			}
-			else if (bPos.y <= 10) {
-				dy *= -1;
+			else if (ballPosition.y <= 10) {
+				ballSpeedY *= -1;
 			}
-			if (bPos.x >= 790) {
-				dx *= -1;
+			if (ballPosition.x >= 790) {
+				ballSpeedX *= -1;
 			}
-			if (bPos.x <= (pPos.x)) {
+			if (ballPosition.x <= (paddlePosition.x)) {
 				ball.setPosition(400, 300);
-				dx *= -1;
+				ballSpeedX *= -1;
 				score = 0;
 				text.setString(std::to_string(score));
 				over = true;
 				isPlaying = false;
 			}
-			else if (bPos.x <= pPos.x + 10 && (bPos.y <= pPos.y + 40 && bPos.y >= pPos.y - 40)) {
-				dx *= -1;
+			else if (ballPosition.x <= paddlePosition.x + 10 && (ballPosition.y <= paddlePosition.y + 40 && ballPosition.y >= paddlePosition.y - 40)) {
+				ballSpeedX *= -1;
 				score++;
 				text.setString(std::to_string(score));
 			}
-			if ((pPos.y - 40) < 0) {
-				paddleA.setPosition(pPos.x, 40);
+			if ((paddlePosition.y - 40) < 0) {
+				paddleA.setPosition(paddlePosition.x, 40);
 			}
-			else if ((pPos.y + 40) > 600) {
-				paddleA.setPosition(pPos.x, 560);
+			else if ((paddlePosition.y + 40) > 600) {
+				paddleA.setPosition(paddlePosition.x, 560);
 			}
 			window.clear(Color::Black);
 			window.draw(text);
@@ -149,8 +149,8 @@ int main()
 								score = 0;
 								text.setString(std::to_string(score));
 								ball.setPosition(400, 300);
-								dx = 7;
-								dy = 7;
+								ballSpeedX = 7;
+								ballSpeedY = 7;
 								paddleA.setPosition(20, 300);
 								esc = false;
 								isPlaying = true;
